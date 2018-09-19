@@ -1,0 +1,14 @@
+from flask import Flask,request,jsonify,render_template
+from flask_restful import Resource, Api,original_flask_make_response
+
+app = Flask(__name__)
+api = Api(app)
+a=0
+
+class HelloWorld(Resource):
+    def get(self):
+        return render_template('index.html')
+api.add_resource(HelloWorld, '/')
+
+if __name__ == '__main__':
+    app.run(debug=True)
